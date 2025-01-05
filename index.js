@@ -1,10 +1,9 @@
 import express from 'express';
-const app = express();
+import mongoose from 'mongoose';
+import keys from './config/keys.js';
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+mongoose.connect(keys.mongoURI);
 
+export const app = express();
 const PORT = process.env.PORT || 4000;
-
 app.listen(PORT);
